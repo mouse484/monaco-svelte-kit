@@ -1,13 +1,3 @@
-// export const create = () => {
-// 	import('monaco-editor').then((monaco) => {
-// 		import('./monaco.modules');
-// 		monaco.editor.create(document.getElementById('monaco-editor'), {
-// 			language: 'typescript',
-// 			theme: 'dracula',
-// 			value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n')
-// 		});
-// 	});
-// };
 type monaco = typeof import('monaco-editor/esm/vs/editor/editor.api');
 
 import type { Environment, editor } from 'monaco-editor/esm/vs/editor/editor.api';
