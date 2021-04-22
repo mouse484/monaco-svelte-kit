@@ -54,6 +54,8 @@ import 'monaco-editor/esm/vs/editor/contrib/suggest/suggestController.js';
 // import 'monaco-editor/esm/vs/editor/standalone/browser/toggleHighContrast/toggleHighContrast.js';
 // END_FEATURES
 
+export * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+
 // (2) Desired languages:
 // BEGIN_LANGUAGES
 // import 'monaco-editor/esm/vs/language/css/monaco.contribution.js';

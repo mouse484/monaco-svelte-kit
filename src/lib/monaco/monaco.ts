@@ -14,7 +14,7 @@ import { format } from './format.prettier';
 export class Monaco {
 	monaco!: monaco;
 	constructor() {
-		import('monaco-editor').then((monaco) => {
+		import('./monaco.modules').then(({ monaco }) => {
 			this.monaco = monaco;
 			this.init();
 			this.addTheme('dracula');
@@ -23,8 +23,6 @@ export class Monaco {
 		});
 	}
 	private init() {
-		import('./monaco.modules');
-
 		self.MonacoEnvironment = {
 			getWorker
 		};
