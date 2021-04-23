@@ -20,7 +20,7 @@ import 'monaco-editor/esm/vs/editor/contrib/contextmenu/contextmenu.js';
 import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
 // import 'monaco-editor/esm/vs/editor/contrib/folding/folding.js';
 // import 'monaco-editor/esm/vs/editor/contrib/fontZoom/fontZoom.js';
-// import 'monaco-editor/esm/vs/editor/contrib/format/formatActions.js';
+import 'monaco-editor/esm/vs/editor/contrib/format/formatActions.js';
 // import 'monaco-editor/esm/vs/editor/contrib/gotoError/gotoError.js';
 // import 'monaco-editor/esm/vs/editor/contrib/gotoSymbol/goToCommands.js';
 // import 'monaco-editor/esm/vs/editor/contrib/gotoSymbol/link/goToDefinitionAtPosition.js';
