@@ -3,16 +3,16 @@ import type { Options } from 'prettier';
 import tsParser from 'prettier/parser-typescript';
 
 const getParser = (
-	language: string
+  language: string
 ): Pick<Options, 'parser'> & Pick<Options, 'plugins'> => {
-	switch (language) {
-		case 'typescript':
-			return { parser: 'typescript', plugins: [tsParser] };
-		default:
-			return {};
-	}
+  switch (language) {
+    case 'typescript':
+      return { parser: 'typescript', plugins: [tsParser] };
+    default:
+      return {};
+  }
 };
 
 export const format = (source: string, language: string): string => {
-	return prettier.format(source, { singleQuote: true, ...getParser(language) });
+  return prettier.format(source, { singleQuote: true, ...getParser(language) });
 };

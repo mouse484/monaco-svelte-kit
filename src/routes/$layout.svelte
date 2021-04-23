@@ -1,13 +1,13 @@
 <script lang="ts">
-	import '../app.css';
+  import '../app.css';
 </script>
 
 <main>
-	<slot />
+  <slot />
 </main>
 
 <style>
-	main {
-		height: 100%;
-	}
+  main {
+    height: 100%;
+  }
 </style>
