@@ -27,6 +27,10 @@
   },
   "type": "module",
   "dependencies": {
-    "monaco-editor": "^0.23.0"
+    "monaco-editor": "^0.23.0",
+    "monaco-editor-textmate": "^2.2.2",
+    "monaco-textmate": "^3.0.1",
+    "monaco-vscode-textmate-theme-converter": "^0.1.1",
+    "onigasm": "^2.2.5"
   }
 }
