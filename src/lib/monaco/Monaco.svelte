@@ -1,10 +1,10 @@
 <script>
-  import { Monaco } from './monaco';
+  import { monaco } from './monaco';
   import { onMount } from 'svelte';
 
   onMount(() => {
     if (import.meta.env.SSR) return;
-    new Monaco();
+    monaco();
   });
 </script>
 

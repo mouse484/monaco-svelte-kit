@@ -1,6 +1,7 @@
 import * as prettier from 'prettier/standalone';
 import type { Options } from 'prettier';
 import tsParser from 'prettier/parser-typescript';
+type monaco = typeof import('monaco-editor/esm/vs/editor/editor.api');
 
 const getParser = (
   language: string
@@ -13,6 +14,21 @@ const getParser = (
   }
 };
 
-export const format = (source: string, language: string): string => {
+const format = (source: string, language: string): string => {
   return prettier.format(source, { singleQuote: true, ...getParser(language) });
+};
+
+export const setFormatter = (monaco: monaco) => {
+  monaco.languages.getLanguages().forEach(({ id: language }) => {
+    monaco.languages.registerDocumentFormattingEditProvider(language, {
+      provideDocumentFormattingEdits: (model) => {
+        return [
+          {
+            range: model.getFullModelRange(),
+            text: format(model.getValue(), language),
+          },
+        ];
+      },
+    });
+  });
 };
