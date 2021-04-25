@@ -12,8 +12,10 @@ declare global {
 import { getWorker } from './monaco.worker';
 import { setFormatter } from './format.prettier';
 
-export const monaco = async () => {
+export const monaco = async (): Promise<void> => {
   const { monaco } = await import('./monaco.modules');
+  const { textmate } = await import('./monaco.textmate');
+  const { wireTmGrammars, grammars, registry } = await textmate();
 
   // Worker
   self.MonacoEnvironment = {
@@ -21,10 +23,13 @@ export const monaco = async () => {
   };
 
   // Theme
-  const { default: theme } = await import('./themes/dracula.json');
 
-  monaco.editor.defineTheme('dracula', theme as editor.IStandaloneThemeData);
-  monaco.editor.setTheme('dracula');
+  const { default: theme } = await import('../../../themes/dracula.json');
+  monaco.editor.defineTheme(
+    'vs-code-theme-converted',
+    theme as editor.IStandaloneThemeData
+  );
+  monaco.editor.setTheme('vs-code-theme-converted');
 
   // Formatter (pretttier)
   setFormatter(monaco);
@@ -39,5 +44,5 @@ export const monaco = async () => {
     }
   );
 
-  return { monaco, editor };
+  await wireTmGrammars(monaco, registry, grammars, editor);
 };
