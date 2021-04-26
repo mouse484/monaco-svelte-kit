@@ -9,7 +9,7 @@ declare global {
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
-export const getWorker = (_moduleId, label) => {
+export const getWorker = (_moduleId: unknown, label: string): Worker => {
   if (label === 'typescript' || label === 'javascript') {
     return new tsWorker();
   }
