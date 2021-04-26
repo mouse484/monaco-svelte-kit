@@ -1,6 +1,6 @@
-import * as prettier from 'prettier/standalone';
+import * as prettier from 'prettier/standalone.js';
 import type { Options } from 'prettier';
-import tsParser from 'prettier/parser-typescript';
+import tsParser from 'prettier/parser-typescript.js';
 type monaco = typeof import('monaco-editor/esm/vs/editor/editor.api');
 
 const getParser = (
@@ -18,7 +18,7 @@ const format = (source: string, language: string): string => {
   return prettier.format(source, { singleQuote: true, ...getParser(language) });
 };
 
-export const setFormatter = (monaco: monaco) => {
+export const setFormatter = (monaco: monaco): void => {
   monaco.languages.getLanguages().forEach(({ id: language }) => {
     monaco.languages.registerDocumentFormattingEditProvider(language, {
       provideDocumentFormattingEdits: (model) => {
